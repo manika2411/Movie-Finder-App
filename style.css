@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
+              url('bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  min-height: 100vh;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: flex-start; 
+}
+
+/* Headings */
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.search-bar input {
+  padding: 12px 18px;
+  font-size: 16px;
+  width: 60%;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+  background: #f1f1f1;
+  color: #000;
+}
+
+.search-bar button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background: #E50914;
+  color: white;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.search-bar button:hover {
+  background: #b20710;
+}
+
+/* Spinner */
+#spinner {
+  border: 6px solid rgba(255,255,255,0.2);
+  border-top: 6px solid #E50914;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+.spinner.hidden {
+  display: none;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Grid Displays */
+#results, #favorites {
+  background-color: transparent;
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  width: 90%; 
+  max-width: 1200px; 
+}
+
+.movie-item {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  text-align: center;
+  max-width: 250px;
+  margin: 10px auto; 
+}
+
+.movie-item:hover {
+  transform: translateY(-5px);
+}
+
+.movie-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #1c1c1c;
+}
+
+.movie-item h3 {
+  font-size: 18px;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.movie-item p {
+  font-size: 14px;
+  color: yellow;
+  margin-bottom: 10px;
+}
+
+.movie-item button {
+  padding: 6px 12px;
+  margin: 3px;
+  border: none;
+  background-color: #E50914;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.movie-item button:hover {
+  background-color: #b20710;
+  transform: scale(1.05);
+}
+
+/* Movie Details Section */
+#movieDetails {
+  display: none;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  margin-top: 30px;
+  color: #fff;
+  width: 90%; 
+  max-width: 800px; 
+}
+
+/* Pagination Buttons */
+#pagination {
+  text-align: center;
+  margin-top: 20px;
+  width: 90%;
+  max-width: 600px; 
+}
+
+#pagination button {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#pagination button:hover {
+  background-color: #E50914;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    gap: 20px;
+    width: 90%; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .search-bar input, .search-bar button {
+    width: 100%; 
+    border-radius: 10px;
+  }
+
+  .fav{
+    color: black;
+  }
+
+  .movie-item img {
+    height: 240px;
+  }
+
+  .movie-item p {
+    color: yellow;
+  }
+
+  #results, #favorites, #movieDetails, #pagination {
+    width: 95%; 
+  }
+}
